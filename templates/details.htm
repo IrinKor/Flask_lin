@@ -1,0 +1,20 @@
+﻿{% import 'utils.htm' as forms %}
+
+    {% extends 'main.htm' %}
+    {% block content %}
+    <h1>Детали</h1>
+    <table class="table">
+        <tr>
+            <th>Название</th>
+            <th>Номер детали</th>
+        </tr>
+        {% for d in items %}
+            <tr>
+                <td> {{ d.name }} </td>
+                <td> {{ d.part_num}} </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{{ forms.next_page('catalogDit',page,pages) }}
+    {% endblock %}

@@ -1,0 +1,10 @@
+﻿{% extends "main.htm" %}
+{% block title %}
+    child2
+{% endblock %}
+
+{% block body %}
+    <p>Здесь должен быть другой контент</p>
+
+    {{ super() }}
+{% endblock %}

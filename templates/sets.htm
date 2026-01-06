@@ -1,0 +1,43 @@
+﻿{% import 'utils.htm' as forms %}
+{% extends 'main.htm' %}
+{% block content %}
+<h1>Наборы</h1>
+<table class="table">
+    <tr>
+        <th>Название</th>
+        <th>Год</th>
+        <th>Кол-во деталей</th>
+        <th>Номер набора</th>
+        <th>Действия</th>
+    </tr>
+    {% for d in items %}
+        <tr>
+            <td>{{ d.name }}</td>
+            <td>{{ d.year }}</td>
+            <td>{{ d.num_parts }}</td>
+            <td>{{ d.set_num }}</td>
+            <td>
+                <button onclick="toggleFavorite('{{ d.set_num }}', this)"
+                        class="btn btn-outline-primary btn-sm">
+                    ★ Добавить в избранное
+                </button>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+{{ forms.next_page('catalog', page, pages) }}
+
+<script>
+function toggleFavorite(setNum, button) {
+    fetch(`/add_to_favorite/${setNum}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'added') {
+                button.textContent = '✓ В избранном';
+                button.classList.remove('btn-outline-primary');
+                button.classList.add('btn-success');
+            }
+        });
+}
+</script>
+{% endblock %}

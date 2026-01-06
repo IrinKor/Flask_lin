@@ -1,0 +1,14 @@
+﻿    {% extends 'main.htm' %}
+    {% block content %}
+    <h1>Детали</h1>
+    <table>
+        {% for d in details %}
+            <tr>
+                <td>{{ d["part_name"] }}</td>
+                <td>{{ d["color"] }}</td>
+                <td>{{ d["part_number"]}}</td>
+
+            </tr>
+        {% endfor %}
+    </table>
+    {% endblock %}

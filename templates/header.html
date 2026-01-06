@@ -1,0 +1,29 @@
+﻿<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Lego</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Главная</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Избранное</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('catalog', page=1 )}}">Наборы</a>
+        </li>
+            <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('catalogDit', page=1 )}}">Детали</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search" action= "{{ url_for('search')}}" method="post">
+        <input class="form-control me-2" type="search" placeholder="Поиск" aria-label="Поиск" name= "query">
+        <button class="btn btn-outline-success" type="submit">Поиск</button>
+      </form>
+
+    </div>
+  </div>
+</nav>

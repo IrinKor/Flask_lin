@@ -1,0 +1,26 @@
+﻿    {% macro next_page(name,page, pages) -%}
+    <nav aria-label="Page navigation example">
+  <ul class="pagination">
+
+    <li class="page-item"><a class="page-link" href="{{ url_for(name,page=1 )}}">Начало</a></li>
+
+
+    {% if page > 1 %}
+    <li class="page-item"><a class="page-link" href="{{ url_for(name,page=page-1 )}}">Предыдущий</a></li>
+    {% endif %}
+
+
+    {% for i in range(page-5,page+5) %}
+        {% if (i > 0) and (i <= pages) %}
+            <li class="page-item"><a class="page-link" href="{{ url_for(name,page=i )}}">{{i}}</a></li>
+        {% endif %}
+    {% endfor %}
+
+    {% if page < pages %}
+        <li class="page-item"><a class="page-link" href="{{ url_for(name,page=page+1 )}}">Следующий</a></li>
+    {% endif %}
+
+    <li class="page-item"><a class="page-link" href="{{ url_for(name,page=pages )}}">Конец</a></li>
+  </ul>
+</nav>
+{%- endmacro %}

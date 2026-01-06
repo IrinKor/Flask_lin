@@ -1,0 +1,12 @@
+﻿
+<ul id="navigation">
+
+{% macro link(href, content) -%}
+    <a href="{{ href }}">{{ content }}</a>
+{%- endmacro %}
+
+{% set navigation = [{"href": "#", "caption": "INDEX"}, {"href": "#", "caption": "ABOUT"}] %}
+{% for item in navigation %}
+        <li>{{ link(item['href'], item["caption"]) }}</li>
+{% endfor %}
+</ul>

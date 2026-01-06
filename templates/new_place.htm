@@ -1,0 +1,27 @@
+﻿    {% extends 'main.htm' %}
+    {% block main_block %}
+        <h1 class="mt-5">Новое помещение</h1>
+        <div class="row">
+        <form class="col-6" action="{{url_for('add_place')}}" method="post">
+          <div class="">
+            <label for="inputTitle">Название помещения</label>
+            <input class="form-control" id="inputTitle" name="title" value="Помещение №">
+          </div>
+          <div class="">
+            <label for="inputSquare" >Площадь</label>
+            <input class="form-control" id="inputSquare" name="square" type="number">
+          </div>
+          <div class="">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked name="is_office">
+              <label class="form-check-label" for="flexCheckChecked">
+                это Офисное помещение
+              </label>
+            </div>
+          </div>
+          <div class="">
+            <button type="submit" class="btn btn-primary">Сохранить</button>
+          </div>
+        </form>
+        </div>
+    {% endblock %}

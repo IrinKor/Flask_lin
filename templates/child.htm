@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+.dialog {
+border: 1px solid black;
+
+}
+.contents{
+background: gray;
+}
+</style>
+    <title>My Webpage</title>
+</head>
+<body>
+
+{% include 'menu.htm'%}
+
+    {% set a_variable %}
+        <p>{{name}} мыла раму</p>
+    {% endset %}
+
+    {% macro input(name, fam) -%}
+    <tr><td>{{ name }}</td>
+        <td>{{ fam }}</td></tr>
+    {%- endmacro %}
+    <table>
+    <tr>
+      {% for item in EMPL %}
+        {{ input(item['имя'], item['фамилия']) }}
+      {% endfor %}
+    </tr>
+    </table>
+    {{ a_variable }}
+
+    {# a comment #}
+
+    {% macro render_dialog(title, datat, class='dialog') -%}
+
+    <div class="{{ class }}">
+        <h2>{{ title }}</h2>
+        <div class="contents">
+            "Дата рождения :" {{ datat }}
+        </div>
+    </div>
+{%- endmacro %}
+
+      {% for item in EMPL %}
+      {{ render_dialog(item['фамилия'], item['дата_рождения']) }}
+
+        {# input(item['имя'], item['фамилия']) #}
+      {% endfor %}
+
+</body>
+
+</html>

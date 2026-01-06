@@ -1,0 +1,10 @@
+﻿    {% extends 'main.htm' %}
+    {% block body_block %}
+    <h1>Арендаторы</h1>
+    {% set items = ['Wildberris', 'Ozon', 'YandexMarket', ]%}
+    <ol>
+        {% for obj in items %}
+                <li>{{ obj }}</li>
+        {% endfor %}
+    </ol>
+    {% endblock %}
