@@ -1,0 +1,5 @@
+home = D:\D\Students\Python312
+include-system-site-packages = false
+version = 3.12.2
+executable = D:\D\Students\Python312\python.exe
+command = D:\D\Students\Python312\python.exe -m venv D:\Students\flask_project\venv
